@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'File Hider' target in the 'File Hider' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
