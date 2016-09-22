@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PanelController">
+            <connections>
+                <outlet property="backgroundView" destination="3" id="6"/>
+                <outlet property="displayed_text" destination="116" id="120"/>
+                <outlet property="draggingView" destination="106" id="142"/>
+                <outlet property="setting_backgroundView" destination="184" id="185"/>
+                <outlet property="setting_panel" destination="183" id="186"/>
+                <outlet property="window" destination="2" id="5"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="none" id="2" customClass="Panel">
+            <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="81" width="300" height="300"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="3" customClass="BackgroundView">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="35">
+                        <rect key="frame" x="276" y="269" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="81"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="power" imagePosition="above" alignment="left" imageScaling="proportionallyDown" id="36">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeApp:" target="-2" id="39"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="146">
+                        <rect key="frame" x="276" y="11" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="152"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="setting" imagePosition="above" alignment="left" imageScaling="proportionallyDown" id="148">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggleSettingView:" target="-2" id="176"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="40">
+                        <rect key="frame" x="8" y="269" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="76"/>
+                            <constraint firstAttribute="height" constant="16" id="78"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="close" imagePosition="only" alignment="center" imageScaling="proportionallyDown" id="41">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeButtonPressed:" target="-2" id="45"/>
+                        </connections>
+                    </button>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="106" customClass="DraggingAreaView">
+                        <rect key="frame" x="37" y="66" width="226" height="169"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="116">
+                                <rect key="frame" x="56" y="41" width="115" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="123"/>
+                                    <constraint firstAttribute="width" constant="111" id="306"/>
+                                </constraints>
+                                <animations/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Drag Files or Folders Here to Toggle Visibility" id="117">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="116" firstAttribute="top" secondItem="106" secondAttribute="top" constant="61" id="126"/>
+                            <constraint firstItem="116" firstAttribute="centerX" secondItem="106" secondAttribute="centerX" id="308"/>
+                        </constraints>
+                        <animations/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="40" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="8" id="86"/>
+                    <constraint firstItem="40" firstAttribute="top" secondItem="3" secondAttribute="top" constant="15" id="99"/>
+                    <constraint firstItem="35" firstAttribute="bottom" secondItem="40" secondAttribute="bottom" id="100"/>
+                    <constraint firstItem="35" firstAttribute="top" secondItem="40" secondAttribute="top" id="101"/>
+                    <constraint firstItem="35" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="276" id="128"/>
+                    <constraint firstItem="106" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="37" id="138"/>
+                    <constraint firstItem="106" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="139"/>
+                    <constraint firstItem="106" firstAttribute="top" secondItem="3" secondAttribute="top" constant="65" id="140"/>
+                    <constraint firstItem="106" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="141"/>
+                    <constraint firstItem="146" firstAttribute="leading" secondItem="35" secondAttribute="leading" id="154"/>
+                    <constraint firstItem="146" firstAttribute="trailing" secondItem="35" secondAttribute="trailing" id="155"/>
+                    <constraint firstAttribute="bottom" secondItem="146" secondAttribute="bottom" constant="11" id="168"/>
+                </constraints>
+                <animations/>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="4"/>
+            </connections>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="183" customClass="Panel">
+            <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="81" width="272" height="132"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="184" customClass="BackgroundView">
+                <rect key="frame" x="0.0" y="0.0" width="272" height="132"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="200">
+                        <rect key="frame" x="15" y="68" width="27" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="212"/>
+                            <constraint firstAttribute="width" constant="23" id="213"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="201">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="301" name="value" keyPath="values.showAtLaunch" id="303"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="220">
+                        <rect key="frame" x="51" y="75" width="207" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="203" id="224"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Make All Files Visible at Launch" id="221">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="249">
+                        <rect key="frame" x="39" y="26" width="78" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="74" id="289"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="Hide" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="250">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="hideButtonPressed:" target="-2" id="304"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="261">
+                        <rect key="frame" x="157" y="26" width="76" height="29"/>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="Show All" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="264">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showAllButtonPressed:" target="-2" id="305"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="249" secondAttribute="bottom" constant="29" id="251"/>
+                    <constraint firstItem="261" firstAttribute="baseline" secondItem="249" secondAttribute="baseline" id="267"/>
+                    <constraint firstItem="249" firstAttribute="leading" secondItem="184" secondAttribute="leading" constant="41" id="281"/>
+                    <constraint firstAttribute="trailing" secondItem="261" secondAttribute="trailing" constant="41" id="288"/>
+                    <constraint firstItem="200" firstAttribute="centerY" secondItem="220" secondAttribute="centerY" id="297"/>
+                    <constraint firstItem="200" firstAttribute="leading" secondItem="184" secondAttribute="leading" constant="17" id="298"/>
+                    <constraint firstItem="200" firstAttribute="top" secondItem="184" secondAttribute="top" constant="36" id="299"/>
+                    <constraint firstItem="220" firstAttribute="leading" secondItem="184" secondAttribute="leading" constant="53" id="300"/>
+                </constraints>
+                <animations/>
+            </view>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="301"/>
+    </objects>
+    <resources>
+        <image name="close" width="16" height="16"/>
+        <image name="power" width="16" height="16"/>
+        <image name="setting" width="16" height="16"/>
+    </resources>
+</document>
